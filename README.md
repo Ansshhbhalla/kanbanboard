@@ -18,7 +18,7 @@ High (Priority level 3)
 Medium (Priority level 2)
 Low (Priority level 1)
 No priority (Priority level 0)
-
+![](https://github.com/Ansshhbhalla/kanbanboard/blob/main/src/assets/flow.png)
 Persistent State:
 The app saves the user’s view state (grouping and sorting preferences) even after a page reload.
 Responsive Design:
