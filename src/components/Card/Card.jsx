@@ -2,32 +2,34 @@ import React, { useEffect, useState } from "react";
 import "./Card.css";
 import Avatar from "react-avatar";
 
-// Card component to display each ticket
-const Card = ({ ticket, groupBy, userName }) => {
-  const [checked, setChecked] = useState(false); // State for checkbox
+const TicketCard = ({ ticket, type, userName }) => {
+  const [isCompleted, setIsCompleted] = useState(false); // State to track if the checkbox is checked
 
-  // Load the saved checkbox state from localStorage when the component mounts
+  // Load checkbox state from local storage when the component is first rendered
   useEffect(() => {
-    const savedCheckedState = localStorage.getItem(`checkbox-${ticket.id}`);
-    if (savedCheckedState) {
-      setChecked(JSON.parse(savedCheckedState));
+    const savedState = localStorage.getItem(`ticket-checkbox-${ticket.id}`);
+    if (savedState) {
+      setIsCompleted(JSON.parse(savedState)); // Set state if saved in local storage
     }
   }, [ticket.id]);
 
-  // Save the checkbox state to localStorage whenever it changes
-  const handleCheckboxToggle = (event) => {
+  // Handle checkbox state change and save it to local storage
+  const handleCheckboxChange = (event) => {
     const isChecked = event.target.checked;
-    setChecked(isChecked);
-    localStorage.setItem(`checkbox-${ticket.id}`, JSON.stringify(isChecked));
+    setIsCompleted(isChecked); // Update checkbox state
+    localStorage.setItem(
+      `ticket-checkbox-${ticket.id}`,
+      JSON.stringify(isChecked)
+    ); // Save state to local storage
   };
 
-  // JSX content to be returned
-  const ticketCardContent = (
+  return (
     <div className="kanban-card-container">
-      <div key={ticket.id} className="kanban-ticket">
+      <div className="kanban-ticket">
+        {/* Header section: displays ticket ID and user avatar */}
         <div className="kanban-ticket-header">
           <span className="kanban-ticket-id">{ticket.id}</span>
-          {(groupBy === "status" || groupBy === "priority") && (
+          {(type === "status" || type === "priority") && (
             <Avatar
               name={userName}
               size="16"
@@ -37,14 +39,15 @@ const Card = ({ ticket, groupBy, userName }) => {
           )}
         </div>
 
+        {/* Middle section: displays checkbox and title */}
         <div className="kanban-ticket-middle">
-          {(groupBy === "user" || groupBy === "priority") && (
+          {(type === "user" || type === "priority") && (
             <label className="kanban-ticket-checkbox-label">
               <input
                 type="checkbox"
                 className="kanban-checkbox-hidden"
-                checked={checked}
-                onChange={handleCheckboxToggle}
+                checked={isCompleted}
+                onChange={handleCheckboxChange}
               />
               <span className="kanban-checkbox"></span>
             </label>
@@ -52,17 +55,15 @@ const Card = ({ ticket, groupBy, userName }) => {
           <h3 className="kanban-ticket-title">{ticket.title}</h3>
         </div>
 
+        {/* Footer section: displays ticket tag or a default message */}
         <div className="kanban-ticket-footer">
           <span className="kanban-ticket-tag">
-            <i className="kanban-icon-warning"></i> {ticket.tag || "No title"}
+            <i className="kanban-icon-warning"></i> {ticket.tag || "No tag"}
           </span>
         </div>
       </div>
     </div>
   );
-
-  // Return the prepared JSX content
-  return ticketCardContent;
 };
 
-export default Card;
+export default TicketCard;
