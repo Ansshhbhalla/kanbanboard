@@ -1,6 +1,5 @@
 .kanban-ticket {
   background-color: #fff;
-  border: 1px solid #ccc;
   border-radius: 6px;
   box-shadow: 0 4px 9px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -72,7 +71,6 @@
   opacity: 1;
 }
 
-
 .kanban-card-container {
   display: flex;
   flex-wrap: wrap;
@@ -93,7 +91,6 @@
   align-items: center;
 }
 
-
 .kanban-icon-warning {
   display: inline-block;
   width: 8px;
@@ -104,7 +101,7 @@
 }
 .kanban-ticket-title {
   font-size: 13px;
-  font-weight: 400; 
+  font-weight: 400;
   margin-top: 12px;
   margin-bottom: 12px;
 }
