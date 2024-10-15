@@ -1,0 +1,27 @@
+.kanbanContainer {
+    padding: 21px; /* Increased padding */
+    overflow-x: auto; 
+    background-color: #e9ecef; /* Brighter background color */
+    height: 100vh;
+}
+
+.kanbanSections {
+    display: flex;
+    flex-wrap: nowrap; 
+    gap: 22px; /* Increased gap */
+}
+
+.userProfileAvatar {
+    width: 16px; /* Increased width */
+    height: 16px; /* Increased height */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 11px; /* Increased margin */
+}
+
+.kanbanSection {
+    flex: 0 0 302px; /* Increased width */
+    padding: 0px 11px; /* Increased padding */
+    border-radius: 6px; /* Increased border radius */
+    /* box-shadow: 0 5px 9px rgba(0, 0, 0, 0.1); */ /* Optional: Uncomment for shadow */
+}

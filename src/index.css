@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  font-family: 'Arial', 'Verdana', 'Tahoma', 'Geneva', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Courier', 'Lucida Console', 'Monaco', 'Consolas', monospace; 
+  font-size: 13px;
+}
