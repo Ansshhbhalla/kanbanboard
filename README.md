@@ -24,7 +24,7 @@ The app saves the user’s view state (grouping and sorting preferences) even af
 Responsive Design:
 
 The Kanban board is designed to be responsive, adjusting to various screen sizes for optimal usability.
-
+![](https://github.com/Ansshhbhalla/kanbanboard/blob/main/src/assets/flow2.png)
 API Endpoint
 The application fetches data from the following API:
 https://api.quicksell.co/v1/internal/frontend-assignment
@@ -34,7 +34,7 @@ npm start: Starts the development server.
 npm run build: Builds the app for production.
 
 Project Structure
-
+![](https://github.com/Ansshhbhalla/kanbanboard/blob/main/src/assets/projectarch.png)
 Design
 Pure CSS is used for styling the components.
 No CSS frameworks (e.g., Bootstrap, Tailwind, Material UI) have been used, as per the project requirements.
